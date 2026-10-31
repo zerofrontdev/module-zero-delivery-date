@@ -85,6 +85,8 @@ cached, so a date written into it would go stale. Hidden without
 JavaScript. Stores > Configuration > Zero > Delivery Date > Delivery
 Estimate on Product Pages (off by default).
 
+What changed in each release: [CHANGELOG.md](CHANGELOG.md).
+
 ## License
 
 OSL-3.0 or AFL-3.0, your choice: see `NOTICE.md`.

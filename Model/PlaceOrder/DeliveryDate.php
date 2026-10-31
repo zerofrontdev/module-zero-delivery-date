@@ -41,8 +41,9 @@ class DeliveryDate implements PlaceOrderValidatorInterface
             return;
         }
         $posted = (array) ($request['zero_delivery'] ?? []);
-        $date = trim((string) ($posted['date'] ?? ''));
-        $slot = trim((string) ($posted['slot'] ?? ''));
+        // An array (zero_delivery[date][]=x) counts as not picked.
+        $date = is_scalar($posted['date'] ?? null) ? trim((string) $posted['date']) : '';
+        $slot = is_scalar($posted['slot'] ?? null) ? trim((string) $posted['slot']) : '';
         if ($date === '') {
             if ($this->config->isRequired($storeId)) {
                 throw new LocalizedException(__('Please pick a delivery date.'));
